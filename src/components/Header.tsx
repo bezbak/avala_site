@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from '../assets/Logo.jpg'
 
 const navItems = [
   { label: "Главная", path: "/" },
@@ -38,7 +39,7 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-2 group">
-            <img src="../../public/Logo.jpg" className="w-12 h-12 rounded-full"/>
+            <img src={logo} className="w-12 h-12 rounded-full"/>
             <div className={
               `text-3xl font-bold text-foreground group-hover:text-primary transition-colors ${(!isScrolled && location.pathname === "/" && "text-white")}`
             }>

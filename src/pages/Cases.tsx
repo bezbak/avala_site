@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 import { TrendingUp, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 
+import trading from '../assets/trading2.avif';
+import ioi from '../assets/invest2.webp';
+import selfvisa from '../assets/selfvisa.png';
+import startup from '../assets/sew2.jpg';
+
 const Cases = () => {
   const cases = [
     {
@@ -12,7 +17,7 @@ const Cases = () => {
       client: "Trading Lub",
       industry: "Трейдинговая компания",
       date: "Октябрь 2024",
-      image: "../../public/trading2.avif",
+      image: trading,
       challenge: "Хаос в продажах, низкий поток новых клиентов и слабая конверсия в сделки.",
       before: {
         revenue: "300 000 сом/мес",
@@ -35,7 +40,7 @@ const Cases = () => {
       client: "IOI",
       industry: "Инвестиционная компания",
       date: "Сентябрь 2024",
-      image: "../../public/invest2.webp",
+      image: ioi,
       challenge: "Отсутствие системы привлечения инвесторов и нулевая выручка на старте проекта.",
       before: {
         conversion: "0 сом/мес",
@@ -58,7 +63,7 @@ const Cases = () => {
       client: "Selfvisa.kg",
       industry: "Визовый центр",
       date: "Август 2024",
-      image: "../../public/selfvisa.png",
+      image: selfvisa,
       challenge: "Нестабильный поток заявок и ограниченный доход до 1 000 000 сомов.",
       before: {
         conversion: "1 000 000 сом/мес",
@@ -81,7 +86,7 @@ const Cases = () => {
       client: "Start Up",
       industry: "Онлайн-образование для швейных производств",
       date: "Август 2024",
-      image: "../../public/sew2.jpg",
+      image: startup,
       challenge: "Проект на стадии идеи: отсутствовала выручка и реализация.",
       before: {
         conversion: "0 сом/мес",
