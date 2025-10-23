@@ -33,7 +33,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
+        (isScrolled || isMobileMenuOpen) ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +41,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-2 group">
             <img src={logo} className="w-12 h-12 rounded-full"/>
             <div className={
-              `text-3xl font-bold text-foreground group-hover:text-primary transition-colors ${(!isScrolled && location.pathname === "/" && "text-white")}`
+              `text-3xl font-bold text-foreground group-hover:text-primary transition-colors ${(!isScrolled && !isMobileMenuOpen && location.pathname === "/" && "text-white")}`
             }>
               Avala
             </div>
