@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, Users, Zap, CheckCircle, BarChart3, Bot, GraduationCap, BrainCircuit } from "lucide-react";
 import SEO from "@/components/SEO";
 
+import banner from '../assets/main-photo.jpeg';
+
 const Home = () => {
   const services = [
     {
@@ -77,7 +79,7 @@ const Home = () => {
         <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=1080&fit=crop"
+              src={banner}
               alt="Background"
               className="w-full h-full object-cover animate-slow-zoom"
             />
