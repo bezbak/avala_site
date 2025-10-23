@@ -47,7 +47,7 @@ const About = () => {
   ];
 
   const differentiators = [
-    "15+ лет опыта в консалтинге и автоматизации бизнеса",
+    "10+ лет опыта в консалтинге и автоматизации бизнеса",
     "Индивидуальный подход — нет готовых шаблонов",
     "Команда из 50+ специалистов разного профиля",
     "Гарантия результата прописана в договоре",
@@ -63,29 +63,25 @@ const About = () => {
         keywords="о компании Avala, бизнес консалтинг, команда экспертов, опыт автоматизации"
       />
 
-      <div className="min-h-screen pt-32 pb-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen pt-24 pb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-12xl">
           {/* Hero */}
-          <div className="text-center mb-20 animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">О компании Avala</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Мы помогаем бизнесу расти с 2009 года. За это время реализовали более 500 проектов,
-              помогли увеличить выручку клиентов на ₽2.5+ млрд и стали экспертами, которым доверяют.
+          <div className="text-center mb-16 animate-fade-in">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">AVALA CONSULTING</h1>
+            <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Мы помогаем компаниям строить прозрачные и эффективные бизнес-процессы, внедрять современные технологии и превращать продажи в работающую систему, приносящую стабильный результат.
             </p>
           </div>
 
           {/* Mission */}
-          <div className="mb-20">
-            <Card className="border-2 overflow-hidden">
-              <CardContent className="p-12 md:p-16 bg-gradient-to-br from-primary/5 to-transparent">
+          <div className="mb-16">
+            <Card className="border overflow-hidden">
+              <CardContent className="p-8 md:p-12 bg-gradient-to-br from-primary/5 to-transparent">
                 <div className="max-w-4xl mx-auto text-center">
-                  <Award className="w-16 h-16 text-primary mx-auto mb-6" />
-                  <h2 className="text-3xl md:text-4xl font-bold mb-6">Наша миссия</h2>
-                  <p className="text-xl leading-relaxed text-muted-foreground">
-                    Делать технологии доступными для каждого бизнеса. Мы верим, что правильная
-                    автоматизация и грамотная стратегия продаж могут кардинально изменить любую
-                    компанию — от стартапа до корпорации. Наша задача — быть проводником в мир
-                    эффективных решений и помогать достигать амбициозных целей.
+                  <Award className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4">Наша миссия</h2>
+                  <p className="text-base leading-relaxed text-muted-foreground">
+                    Наша миссия — помогать компаниям расти и развиваться. Мы упрощаем сложные процессы, повышаем эффективность команд и создаём прозрачную, управляемую бизнес-среду, в которой руководители принимают решения уверенно и своевременно.
                   </p>
                 </div>
               </CardContent>
@@ -93,43 +89,41 @@ const About = () => {
           </div>
 
           {/* Timeline */}
-          <div className="mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Наш путь</h2>
+          {/* <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">Наш путь</h2>
             <div className="relative">
-              {/* Line */}
               <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-border transform -translate-x-1/2" />
               
-              <div className="space-y-12">
+              <div className="space-y-10">
                 {timeline.map((item, index) => (
-                  <div key={index} className={`relative grid md:grid-cols-2 gap-8 ${index % 2 === 0 ? '' : 'md:grid-flow-dense'}`}>
+                  <div key={index} className={`relative grid md:grid-cols-2 gap-6 ${index % 2 === 0 ? '' : 'md:grid-flow-dense'}`}>
                     <div className={`${index % 2 === 0 ? 'md:text-right' : 'md:col-start-2'}`}>
                       <div className="inline-block md:block">
-                        <div className="text-4xl font-bold text-primary mb-2">{item.year}</div>
-                        <h3 className="text-xl font-semibold mb-2">{item.event}</h3>
-                        <p className="text-muted-foreground">{item.description}</p>
+                        <div className="text-3xl font-bold text-primary mb-1.5">{item.year}</div>
+                        <h3 className="text-lg font-semibold mb-1.5">{item.event}</h3>
+                        <p className="text-sm text-muted-foreground">{item.description}</p>
                       </div>
                     </div>
                     
-                    {/* Dot */}
                     <div className="hidden md:flex absolute left-1/2 top-0 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background shadow-lg" />
                   </div>
                 ))}
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Values */}
-          <div className="mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Наши ценности</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">Наши ценности</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {values.map((value, index) => (
-                <Card key={index} className="hover-lift hover-glow border-2">
-                  <CardContent className="p-8">
-                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                      <value.icon className="w-7 h-7 text-primary" />
+                <Card key={index} className="hover-lift hover-glow border">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                      <value.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                    <h3 className="text-lg font-semibold mb-2">{value.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -137,17 +131,17 @@ const About = () => {
           </div>
 
           {/* Why Choose Us */}
-          <div className="mb-20">
-            <Card className="border-2 overflow-hidden">
-              <CardContent className="p-12 md:p-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <div className="mb-16">
+            <Card className="border overflow-hidden">
+              <CardContent className="p-8 md:p-12">
+                <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
                   Почему выбирают Avala
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
                   {differentiators.map((point, index) => (
-                    <div key={index} className="flex items-start space-x-4">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <p className="text-lg leading-relaxed">{point}</p>
+                    <div key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <p className="text-base leading-relaxed">{point}</p>
                     </div>
                   ))}
                 </div>
@@ -156,33 +150,33 @@ const About = () => {
           </div>
 
           {/* Stats */}
-          <div className="mb-20 bg-foreground text-background rounded-2xl p-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="mb-16 bg-foreground text-background rounded-xl p-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">500+</div>
-                <div className="text-background/80">Реализованных проектов</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-1.5">500+</div>
+                <div className="text-sm text-background/80">Реализованных проектов</div>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">15+</div>
-                <div className="text-background/80">Лет на рынке</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-1.5">10+</div>
+                <div className="text-sm text-background/80">Лет на рынке</div>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">50+</div>
-                <div className="text-background/80">Специалистов в команде</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-1.5">50+</div>
+                <div className="text-sm text-background/80">Специалистов в команде</div>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">98%</div>
-                <div className="text-background/80">Довольных клиентов</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-1.5">98%</div>
+                <div className="text-sm text-background/80">Довольных клиентов</div>
               </div>
             </div>
           </div>
 
           {/* CTA */}
-          <div className="text-center bg-secondary rounded-2xl p-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <div className="text-center bg-secondary rounded-xl p-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Готовы начать работу с Avala?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
               Давайте обсудим ваши задачи и найдём лучшее решение для вашего бизнеса
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

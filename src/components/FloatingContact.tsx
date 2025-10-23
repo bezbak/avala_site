@@ -22,17 +22,17 @@ const FloatingContact = () => {
           </div>
           <div className="space-y-2">
             <a
-              href="tel:+74951234567"
+              href="tel:+996505123233"
               className="flex items-center space-x-3 p-3 rounded-lg hover:bg-secondary transition-colors"
             >
               <Phone className="w-5 h-5 text-primary" />
               <div>
                 <div className="text-sm font-medium">Позвонить</div>
-                <div className="text-xs text-muted-foreground">+7 (495) 123-45-67</div>
+                <div className="text-xs text-muted-foreground">+996 (505) 123-233</div>
               </div>
             </a>
             <a
-              href="https://wa.me/74951234567"
+              href="https://wa.me/996505123233"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-3 p-3 rounded-lg hover:bg-secondary transition-colors"

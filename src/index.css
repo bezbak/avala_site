@@ -143,3 +143,24 @@ All colors MUST be HSL.
     }
   }
 }
+
+@keyframes slow-zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 15s ease-in-out infinite;
+}
+/* https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop
+
+https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1920&h=1080&fit=crop
+
+https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1920&h=1080&fit=crop */

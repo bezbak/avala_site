@@ -60,19 +60,13 @@ const Contacts = () => {
     {
       icon: Phone,
       title: "Телефон",
-      content: "+7 (495) 123-45-67",
-      link: "tel:+74951234567",
-    },
-    {
-      icon: Mail,
-      title: "Email",
-      content: "info@avala.ru",
-      link: "mailto:info@avala.ru",
+      content: "+996 (505) 123 233",
+      link: "tel:+996505123233",
     },
     {
       icon: MapPin,
       title: "Адрес",
-      content: "Москва, ул. Тверская, д. 10, БЦ \"Центральный\", офис 501",
+      content: "Бишкек, ул. Кулатова 61, БЦ \"Ololo\", офис 504",
       link: null,
     },
     {
@@ -92,10 +86,10 @@ const Contacts = () => {
       />
 
       <div className="min-h-screen pt-32 pb-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-10xl">
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Контакты</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">Контакты</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Свяжитесь с нами удобным способом. Мы ответим на все вопросы и поможем
               подобрать оптимальное решение для вашего бизнеса.
@@ -267,7 +261,7 @@ const Contacts = () => {
                   <h3 className="font-semibold mb-4">Мы в социальных сетях</h3>
                   <div className="flex space-x-4">
                     <a
-                      href="https://wa.me/74951234567"
+                      href="https://wa.me/996505123233"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-6 py-3 rounded-lg bg-background hover:bg-primary hover:text-primary-foreground transition-colors font-medium text-sm"
@@ -275,12 +269,12 @@ const Contacts = () => {
                       WhatsApp
                     </a>
                     <a
-                      href="https://t.me/avala"
+                      href="https://instagram.com/avala.consult"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-6 py-3 rounded-lg bg-background hover:bg-primary hover:text-primary-foreground transition-colors font-medium text-sm"
                     >
-                      Telegram
+                      Instagram
                     </a>
                   </div>
                 </CardContent>
@@ -294,23 +288,16 @@ const Contacts = () => {
             <Card className="overflow-hidden border-2">
               <CardContent className="p-0">
                 <div className="relative w-full h-[500px] bg-secondary">
-                  <iframe
-                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A4b9e4c8c4f6c8e1c8e1c8e1c8e1c8e1c&amp;source=constructor"
-                    width="100%"
-                    height="500"
-                    frameBorder="0"
-                    className="w-full h-full"
-                    title="Карта офиса Avala"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d323.4162860212527!2d74.59710332946375!3d42.86047520659491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb7136f9e750f%3A0x30b0e124a2318698!2sololoYurt!5e0!3m2!1sen!2skg!4v1761216159770!5m2!1sen!2skg" className="w-full h-full" loading="lazy"></iframe>
+                  {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <div className="bg-background/95 backdrop-blur-sm p-6 rounded-xl shadow-xl max-w-sm">
                       <MapPin className="w-8 h-8 text-primary mx-auto mb-3" />
                       <p className="text-center font-medium">
-                        Москва, ул. Тверская, д. 10<br />
-                        БЦ "Центральный", офис 501
+                        Бишкек, ул. Кулатова 61<br />
+                        БЦ "Ololo", офис 504
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </CardContent>
             </Card>

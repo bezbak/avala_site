@@ -8,7 +8,7 @@ const navItems = [
   { label: "Услуги", path: "/services" },
   { label: "Кейсы", path: "/cases" },
   { label: "О нас", path: "/about" },
-  { label: "Команда", path: "/team" },
+  // { label: "Команда", path: "/team" },
   { label: "Контакты", path: "/contacts" },
 ];
 
@@ -28,7 +28,7 @@ const Header = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
-
+  
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -37,9 +37,11 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
+            <img src="../../public/Logo.jpg" className="w-12 h-12 rounded-full"/>
+            <div className={
+              `text-3xl font-bold text-foreground group-hover:text-primary transition-colors ${(!isScrolled && location.pathname === "/" && "text-white")}`
+            }>
               Avala
             </div>
           </Link>
@@ -50,7 +52,7 @@ const Header = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${(!isScrolled && location.pathname === "/" && "text-white")} ${
                   location.pathname === item.path
                     ? "bg-primary text-primary-foreground"
                     : "text-foreground hover:bg-secondary"
@@ -113,3 +115,6 @@ const Header = () => {
 };
 
 export default Header;
+
+
+//0505 123 233 WhatsApp

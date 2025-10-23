@@ -48,14 +48,15 @@ const Services = () => {
     {
       icon: GraduationCap,
       title: "Тренинги для менеджеров",
-      problem: "Слабые навыки продаж, неумение работать с возражениями, низкая конверсия переговоров",
-      solution: "Проводим практические тренинги по технике продаж, работе с возражениями, ведению переговоров и управлению клиентской базой.",
+      problem: "Слабые навыки продаж, менеджеры звонят и пишут, но не добиваются результата. Клиенты не чувствуют уверенности и интереса к общению.",
+      solution: "Проводим практические тренинги, где учим уверенно продавать через современные техники и живую коммуникацию.",
       benefits: [
-        "Рост среднего чека на 30-50%",
+        "Рост продаж и конверсии",
         "Увеличение конверсии переговоров",
-        "Уверенность в работе с клиентами",
-        "Практические навыки, не теория",
-        "Персонализированный подход к обучению",
+        "Уверенных и мотивированных менеджеров",
+        "Навыки эффективного общения с клиентом",
+        "Больше сделок и довольных клиентов",
+        "Энергичную и вовлечённую команду"
       ],
     },
     {
@@ -81,47 +82,47 @@ const Services = () => {
         keywords="внедрение CRM, построение отдела продаж, чат-боты для бизнеса, тренинги менеджеров, ИИ решения"
       />
 
-      <div className="min-h-screen pt-32 pb-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen pt-24 pb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-12xl">
           {/* Header */}
-          <div className="text-center mb-16 animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Наши услуги</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <div className="text-center mb-12 animate-fade-in">
+            <h1 className="text-4xl md:text-4xl font-bold mb-3">Наши услуги</h1>
+            <p className="text-base text-muted-foreground max-w-3xl mx-auto">
               Комплексные решения для автоматизации и развития вашего бизнеса.
               Работаем на результат с гарантией качества.
             </p>
           </div>
 
           {/* Services */}
-          <div className="space-y-16">
+          <div className="space-y-10">
             {services.map((service, index) => (
-              <Card key={index} className="overflow-hidden hover-glow border-2">
+              <Card key={index} className="overflow-hidden hover-glow border">
                 <CardContent className="p-0">
-                  <div className="grid md:grid-cols-5 gap-8 p-8 md:p-12">
+                  <div className="grid md:grid-cols-5 gap-6 p-6 md:p-8">
                     {/* Icon & Title */}
                     <div className="md:col-span-2">
-                      <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                        <service.icon className="w-8 h-8 text-primary" />
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                        <service.icon className="w-6 h-6 text-primary" />
                       </div>
-                      <h2 className="text-3xl font-bold mb-4">{service.title}</h2>
+                      <h2 className="text-2xl font-bold mb-3">{service.title}</h2>
                       
-                      <div className="space-y-6 mt-8">
+                      <div className="space-y-4 mt-6">
                         <div>
-                          <h3 className="font-semibold text-destructive mb-2 flex items-center">
-                            <span className="w-2 h-2 rounded-full bg-destructive mr-2" />
+                          <h3 className="text-sm font-semibold text-destructive mb-1.5 flex items-center">
+                            <span className="w-1.5 h-1.5 rounded-full bg-destructive mr-2" />
                             Проблема
                           </h3>
-                          <p className="text-muted-foreground leading-relaxed">
+                          <p className="text-sm text-muted-foreground leading-relaxed">
                             {service.problem}
                           </p>
                         </div>
                         
                         <div>
-                          <h3 className="font-semibold text-primary mb-2 flex items-center">
-                            <span className="w-2 h-2 rounded-full bg-primary mr-2" />
+                          <h3 className="text-sm font-semibold text-primary mb-1.5 flex items-center">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary mr-2" />
                             Решение
                           </h3>
-                          <p className="text-muted-foreground leading-relaxed">
+                          <p className="text-sm text-muted-foreground leading-relaxed">
                             {service.solution}
                           </p>
                         </div>
@@ -130,20 +131,20 @@ const Services = () => {
 
                     {/* Benefits */}
                     <div className="md:col-span-3">
-                      <h3 className="text-xl font-semibold mb-6">Что вы получите:</h3>
-                      <div className="space-y-4 mb-8">
+                      <h3 className="text-base font-semibold mb-4">Что вы получите:</h3>
+                      <div className="space-y-3 mb-6">
                         {service.benefits.map((benefit, i) => (
-                          <div key={i} className="flex items-start space-x-3">
-                            <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                            <p className="text-lg leading-relaxed">{benefit}</p>
+                          <div key={i} className="flex items-start space-x-2.5">
+                            <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <p className="text-sm leading-relaxed">{benefit}</p>
                           </div>
                         ))}
                       </div>
                       
-                      <Button size="lg" className="bg-primary hover:bg-primary-hover text-primary-foreground font-semibold" asChild>
+                      <Button size="default" className="bg-primary hover:bg-primary-hover text-primary-foreground font-semibold" asChild>
                         <Link to="/contacts">
-                          Запросить демо
-                          <ArrowRight className="ml-2 w-5 h-5" />
+                          Записаться
+                          <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
                       </Button>
                     </div>
@@ -154,17 +155,17 @@ const Services = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="mt-20 bg-foreground text-background rounded-2xl p-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <div className="mt-16 bg-foreground text-background rounded-xl p-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Нужна комплексная консультация?
             </h2>
-            <p className="text-xl text-background/80 mb-8 max-w-2xl mx-auto">
+            <p className="text-base text-background/80 mb-6 max-w-2xl mx-auto">
               Наши эксперты помогут подобрать оптимальный набор услуг для решения ваших задач
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary-hover text-primary-foreground font-semibold text-lg px-8" asChild>
+            <Button size="lg" className="bg-primary hover:bg-primary-hover text-primary-foreground font-semibold px-6" asChild>
               <Link to="/contacts">
                 Получить консультацию
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
           </div>

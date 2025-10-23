@@ -35,7 +35,7 @@ const Footer = () => {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/avala.consult"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 hover:bg-primary flex items-center justify-center transition-colors"
@@ -97,8 +97,8 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
-                  <a href="tel:+74951234567" className="text-background/80 hover:text-primary transition-colors text-sm block">
-                    +7 (495) 123-45-67
+                  <a href="tel:+996505123233" className="text-background/80 hover:text-primary transition-colors text-sm block">
+                    +996 505 123 233
                   </a>
                 </div>
               </li>
@@ -106,7 +106,7 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <a href="mailto:info@avala.ru" className="text-background/80 hover:text-primary transition-colors text-sm block">
-                    info@avala.ru
+                    info@avala.com
                   </a>
                 </div>
               </li>
@@ -114,8 +114,8 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-background/80 text-sm">
-                    Москва, ул. Тверская, д. 10<br />
-                    БЦ "Центральный", офис 501
+                    Бишкек, ул. Кулатова 61<br />
+                    БЦ "Ololo", офис 504
                   </p>
                 </div>
               </li>
