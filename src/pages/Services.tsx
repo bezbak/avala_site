@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { BarChart3, Users, Bot, GraduationCap, BrainCircuit, CheckCircle, ArrowRight } from "lucide-react";
+import { BarChart3, Users, Bot, GraduationCap, BrainCircuit, CheckCircle, ArrowRight, ChartLine } from "lucide-react";
 import SEO from "@/components/SEO";
 
 const Services = () => {
@@ -70,6 +70,20 @@ const Services = () => {
         "Оптимизация маркетинговых расходов",
         "Автоматический анализ больших данных",
         "Конкурентное преимущество на рынке",
+      ],
+    },
+    {
+      icon: ChartLine,
+      title: "Кураторство",
+      problem: "Продажи идут нестабильно, менеджеры теряют лиды, нет системного контроля и обратной связи. Руководителю сложно оценить эффективность команды и вовремя скорректировать действия.",
+      solution: "Мы берём на себя ежедневный контроль и сопровождение отдела продаж. Анализируем работу, выявляем узкие места и помогаем внедрять решения, которые повышают результат.",
+      benefits: [
+        "Ежедневный анализ CRM-системы и прослушка звонков",
+        "Рекомендации по улучшению работы менеджеров",
+        "Два видеозвонка в неделю с РОПом",
+        "Два видеозвонка в месяц с руководителем",
+        "Предложения по акциям, рассылкам и скриптам продаж",
+        "Один офлайн-тренинг от ведущего специалиста",
       ],
     },
   ];

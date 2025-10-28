@@ -1,24 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, MapPin, Clock, Send } from "lucide-react";
 import SEO from "@/components/SEO";
 
+// =================== COOKIE HELPERS ===================
+function setCookie(name: string, value: string, days = 7) {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+}
+function getCookie(name: string) {
+  return document.cookie.split("; ").reduce((r, v) => {
+    const parts = v.split("=");
+    return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+  }, "");
+}
+
+// =================== SCHEMA ===================
 const formSchema = z.object({
   name: z.string().min(2, "Имя должно содержать минимум 2 символа").max(100),
-  company: z.string().min(2, "Название компании должно содержать минимум 2 символа").max(100),
   phone: z.string().min(10, "Введите корректный номер телефона").max(20),
-  email: z.string().email("Введите корректный email").max(255),
   service: z.string().min(1, "Выберите услугу"),
-  message: z.string().min(10, "Сообщение должно содержать минимум 10 символов").max(1000),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -31,28 +40,70 @@ const Contacts = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      company: "",
       phone: "",
-      email: "",
       service: "",
-      message: "",
     },
   });
 
+  // =================== RESTORE ANSWERS ===================
+  useEffect(() => {
+    const saved = getCookie("quiz_answers");
+    if (saved) {
+      try {
+        const data = JSON.parse(saved);
+        Object.entries(data).forEach(([key, val]) => {
+          if (form.getValues(key as keyof FormData) !== undefined) {
+            form.setValue(key as keyof FormData, val as string);
+          }
+        });
+      } catch {}
+    }
+  }, []);
+
+  // =================== SAVE ON INPUT ===================
+  useEffect(() => {
+    const subscription = form.watch((values) => {
+      setCookie("quiz_answers", JSON.stringify(values));
+    });
+    return () => subscription.unsubscribe();
+  }, [form.watch]);
+
+  // =================== SUBMIT HANDLER ===================
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    console.log("Form submitted:", data);
-    
-    toast({
-      title: "Заявка отправлена!",
-      description: "Мы свяжемся с вами в ближайшее время.",
-    });
-    
-    form.reset();
+
+    const formData = new FormData();
+    formData.append("fields[name_1]", data.name);
+    formData.append("fields[1211551_1][1320185]", data.phone);
+    formData.append("fields[1345771_1]", data.service);
+    formData.append("form_id", "1619786");
+    formData.append("hash", "1c0c7e5cec0e69e971dc66957e052709");
+
+    // ⚙️ ЗАМЕНИ ЭТУ ССЫЛКУ на свою форму AmoCRM:
+    const AMO_FORM_ACTION = "https://forms.amocrm.ru/queue/add";
+
+    try {
+      await fetch(AMO_FORM_ACTION, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors", // важно для фронта без CORS-ошибок
+      });
+
+      toast({
+        title: "✅ Заявка отправлена!",
+        description: "Мы свяжемся с вами в ближайшее время.",
+      });
+
+      setCookie("quiz_answers", "{}", -1); // очистить куки
+      form.reset();
+    } catch (err) {
+      toast({
+        title: "Ошибка при отправке",
+        description: "Попробуйте позже или свяжитесь по телефону.",
+        variant: "destructive",
+      });
+    }
+
     setIsSubmitting(false);
   };
 
@@ -66,7 +117,7 @@ const Contacts = () => {
     {
       icon: MapPin,
       title: "Адрес",
-      content: "Бишкек, ул. Кулатова 61, БЦ \"Ololo\", офис 504",
+      content: 'Бишкек, ул. Кулатова 61, БЦ "Ololo", офис 504',
       link: null,
     },
     {
@@ -81,18 +132,16 @@ const Contacts = () => {
     <>
       <SEO
         title="Контакты"
-        description="Свяжитесь с Avala: телефон +7 (495) 123-45-67, email info@avala.ru. Адрес офиса в Москве. Оставьте заявку на консультацию."
-        keywords="контакты Avala, офис в Москве, консультация по CRM, связаться с консультантами"
+        description="Свяжитесь с Avala Consulting: телефон, адрес, заявка на консультацию по CRM и автоматизации бизнеса."
+        keywords="контакты Avala Consulting, заявка, консультация, CRM, AI решения, Avala"
       />
 
       <div className="min-h-screen pt-32 pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-10xl">
-          {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">Контакты</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Свяжитесь с нами удобным способом. Мы ответим на все вопросы и поможем
-              подобрать оптимальное решение для вашего бизнеса.
+              Свяжитесь с нами удобным способом. Мы ответим на все вопросы и поможем подобрать решение для вашего бизнеса.
             </p>
           </div>
 
@@ -103,7 +152,7 @@ const Contacts = () => {
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold mb-6">Оставить заявку</h2>
                   <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" id="quizForm">
                       <FormField
                         control={form.control}
                         name="name"
@@ -120,47 +169,17 @@ const Contacts = () => {
 
                       <FormField
                         control={form.control}
-                        name="company"
+                        name="phone"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Компания *</FormLabel>
+                            <FormLabel>Телефон *</FormLabel>
                             <FormControl>
-                              <Input placeholder="ООО «Ваша компания»" {...field} />
+                              <Input type="tel" placeholder="+996 (___) ___-__-__" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <FormField
-                          control={form.control}
-                          name="phone"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Телефон *</FormLabel>
-                              <FormControl>
-                                <Input type="tel" placeholder="+7 (___) ___-__-__" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Email *</FormLabel>
-                              <FormControl>
-                                <Input type="email" placeholder="email@example.com" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
 
                       <FormField
                         control={form.control}
@@ -180,27 +199,10 @@ const Contacts = () => {
                                 <SelectItem value="chatbots">Чат-боты</SelectItem>
                                 <SelectItem value="training">Тренинги для менеджеров</SelectItem>
                                 <SelectItem value="ai">ИИ-решения</SelectItem>
+                                <SelectItem value="curatorship">Кураторство</SelectItem>
                                 <SelectItem value="consultation">Консультация</SelectItem>
                               </SelectContent>
                             </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Сообщение *</FormLabel>
-                            <FormControl>
-                              <Textarea
-                                placeholder="Расскажите подробнее о вашей задаче..."
-                                rows={5}
-                                {...field}
-                              />
-                            </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
@@ -240,10 +242,7 @@ const Contacts = () => {
                       <div>
                         <h3 className="font-semibold mb-2">{item.title}</h3>
                         {item.link ? (
-                          <a
-                            href={item.link}
-                            className="text-muted-foreground hover:text-primary transition-colors"
-                          >
+                          <a href={item.link} className="text-muted-foreground hover:text-primary transition-colors">
                             {item.content}
                           </a>
                         ) : (
@@ -254,53 +253,7 @@ const Contacts = () => {
                   </CardContent>
                 </Card>
               ))}
-
-              {/* Social/Additional Contact */}
-              <Card className="border-2 bg-secondary">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-4">Мы в социальных сетях</h3>
-                  <div className="flex space-x-4">
-                    <a
-                      href="https://wa.me/996505123233"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-3 rounded-lg bg-background hover:bg-primary hover:text-primary-foreground transition-colors font-medium text-sm"
-                    >
-                      WhatsApp
-                    </a>
-                    <a
-                      href="https://instagram.com/avala.consult"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-3 rounded-lg bg-background hover:bg-primary hover:text-primary-foreground transition-colors font-medium text-sm"
-                    >
-                      Instagram
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
-          </div>
-
-          {/* Map */}
-          <div>
-            <h2 className="text-3xl font-bold mb-8 text-center">Как нас найти</h2>
-            <Card className="overflow-hidden border-2">
-              <CardContent className="p-0">
-                <div className="relative w-full h-[500px] bg-secondary">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d323.4162860212527!2d74.59710332946375!3d42.86047520659491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb7136f9e750f%3A0x30b0e124a2318698!2sololoYurt!5e0!3m2!1sen!2skg!4v1761216159770!5m2!1sen!2skg" className="w-full h-full" loading="lazy"></iframe>
-                  {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="bg-background/95 backdrop-blur-sm p-6 rounded-xl shadow-xl max-w-sm">
-                      <MapPin className="w-8 h-8 text-primary mx-auto mb-3" />
-                      <p className="text-center font-medium">
-                        Бишкек, ул. Кулатова 61<br />
-                        БЦ "Ololo", офис 504
-                      </p>
-                    </div>
-                  </div> */}
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
