@@ -39,7 +39,7 @@ const Home = () => {
     {
       client: "Selfvisa.kg",
       industry: "Визовый центр",
-      before: "11 000 000 сом/мес",
+      before: "1 000 000 сом/мес",
       after: "11 000 000 сом/мес",
       improvement: "+1000%",
     },

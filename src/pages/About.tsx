@@ -186,9 +186,9 @@ const About = () => {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="font-semibold border-2" asChild>
+              {/* <Button size="lg" variant="outline" className="font-semibold border-2" asChild>
                 <Link to="/team">Познакомиться с командой</Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>

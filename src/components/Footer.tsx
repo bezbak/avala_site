@@ -70,11 +70,11 @@ const Footer = () => {
                   О нас
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/team" className="text-background/80 hover:text-primary transition-colors text-sm">
                   Команда
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
